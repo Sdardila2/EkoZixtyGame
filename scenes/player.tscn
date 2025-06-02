@@ -635,6 +635,11 @@ animations = [{
 "name": &"idle_up",
 "speed": 4.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_umhy0")
@@ -769,9 +774,7 @@ shape = SubResource("RectangleShape2D_jmxgq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0k3my")
-animation = &"attack_up"
-frame = 7
-frame_progress = 1.0
+animation = &"new_animation"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -83,8 +83,10 @@ func deal_with_damage():
 		health -= Global.player_damage
 		can_take_damage = false
 		$TakeDamageCooldown.start()
+		flash_red()
 		if health <= 0:
 			await die()
+
 
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
@@ -92,8 +94,18 @@ func _on_take_damage_cooldown_timeout() -> void:
 func die() -> void:
 	dying = true
 	print("Slime has been slained")
-	print("Playing death animation")
 	$AnimatedSprite2D.play("death")
 	await $AnimatedSprite2D.animation_finished
-	print("Death animation finished")
 	queue_free()
+
+func flash_red() -> void:
+	var sprite = $AnimatedSprite2D
+	var steps = 15
+	var delay = 0.05  # 15 × 0.05 = 0.75s total
+	var start_color = Color(1.0, 0.25, 0.0)  # rojo anaranjado intenso
+	var end_color = Color(1, 1, 1)  # color normal (blanco)
+
+	for i in range(steps + 1):
+		var t = float(i) / steps
+		sprite.self_modulate = start_color.lerp(end_color, t)
+		await get_tree().create_timer(delay).timeout
