@@ -9,11 +9,17 @@ var start_position: Vector2
 var health = Global.slime_health
 var player_inattack_zone = false
 var can_take_damage = true
+var dying = false
+
 func _ready():
-	start_position = global_position  # Guarda la posición inicial del slime
+	start_position = global_position  # Guarda la posición inicial
 
 func _physics_process(_delta: float) -> void:
+	if dying:
+		return  # No hacer nada mientras muere
+
 	deal_with_damage()
+
 	if player_chase and player:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
@@ -27,14 +33,19 @@ func _physics_process(_delta: float) -> void:
 		else:
 			velocity = Vector2.ZERO
 			returning = false
-			$AnimatedSprite2D.play("idle_down")
+			if not dying:
+				$AnimatedSprite2D.play("idle_down")
 	else:
 		velocity = Vector2.ZERO
-		$AnimatedSprite2D.play("idle_down")
+		if not dying:
+			$AnimatedSprite2D.play("idle_down")
 
 	move_and_slide()
 
 func update_animation(direction: Vector2) -> void:
+	if dying:
+		return  # No actualizar animaciones si está muriendo
+
 	if abs(direction.x) > abs(direction.y):
 		$AnimatedSprite2D.play("walk_side")
 		$AnimatedSprite2D.flip_h = direction.x < 0
@@ -59,27 +70,30 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 func enemy():
 	pass
 
-
 func _on_enemy_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_inattack_zone = true
-
 
 func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_inattack_zone = false
 
 func deal_with_damage():
-	if player_inattack_zone and Global.player_current_attack == true:
-		if can_take_damage == true:
-			health = health - Global.player_damage
-			$TakeDamageCooldown.start()
-			can_take_damage = false
-			print("Slime health = ", health)
-			if health <= 0:
-				print("Slime has been slained")
-				self.queue_free()
-
+	if player_inattack_zone and Global.player_current_attack and can_take_damage:
+		health -= Global.player_damage
+		can_take_damage = false
+		$TakeDamageCooldown.start()
+		if health <= 0:
+			await die()
 
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
+
+func die() -> void:
+	dying = true
+	print("Slime has been slained")
+	print("Playing death animation")
+	$AnimatedSprite2D.play("death")
+	await $AnimatedSprite2D.animation_finished
+	print("Death animation finished")
+	queue_free()

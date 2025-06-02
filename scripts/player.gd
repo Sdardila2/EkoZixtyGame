@@ -107,8 +107,6 @@ func enemy_attack():
 		health = health - Global.slime_damage
 		enemy_attack_cooldown = false
 		$AttackCooldown.start()
-		print("Player health = ", health)
-
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
