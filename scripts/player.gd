@@ -5,7 +5,7 @@ var enemy_attack_cooldown = true
 var health = Global.player_health
 var player_alive = true
 
-const SPEED = 150
+var SPEED = Global.player_speed
 var current_dir = "down"
 var attacking = false
 

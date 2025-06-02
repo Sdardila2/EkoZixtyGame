@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed := 60
+@export var speed = Global.enemy_speed
 var player: Node2D = null
 var player_chase := false
 var returning := false
