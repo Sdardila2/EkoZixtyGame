@@ -6,7 +6,7 @@ var player_chase := false
 var returning := false
 var start_position: Vector2
 
-var health = 100
+var health = Global.slime_health
 var player_inattack_zone = false
 var can_take_damage = true
 func _ready():
