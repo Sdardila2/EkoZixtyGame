@@ -1,13 +1,28 @@
 extends CharacterBody2D
 
+var enemy_inattack_range = false
+var enemy_attack_cooldown = true
+var health = 100
+var player_alive = true
+
 const SPEED = 150
 var current_dir = "down"
 var attacking = false
+
+var attack_ip = false
 
 func _physics_process(delta: float) -> void:
 	if attacking:
 		return  # bloquea todo mientras ataca
 	player_movement(delta)
+	enemy_attack()
+	attack()
+	
+	if health <= 0:
+		player_alive = false #add endscreen, etc.
+		health = 0
+		print("Player has been slained")
+		self.queue_free()
 
 func player_movement(_delta):
 	velocity = Vector2.ZERO
@@ -57,12 +72,54 @@ func start_attack():
 	attacking = true
 	var anim = $AnimatedSprite2D
 
-	match current_dir:
-		"right": anim.play("attack_right")
-		"left": anim.play("attack_left")
-		"down": anim.play("attack_down")
-		"up": anim.play("attack_up")
+	if current_dir == "right": 
+		anim.play("attack_right")
+		$DealAttackTimer.start()
+	elif current_dir == "left":
+		anim.play("attack_left")
+		$DealAttackTimer.start()
+	elif current_dir == "down":
+		anim.play("attack_down")
+		$DealAttackTimer.start()
+	elif current_dir == "up":
+		anim.play("attack_up")
+		$DealAttackTimer.start()
 
 	# Espera a que termine la animación
 	await anim.animation_finished
 	attacking = false
+
+
+func player():
+	pass
+
+func _on_player_hitbox_body_entered(body: Node2D) -> void:
+	if body.has_method("enemy"):
+		enemy_inattack_range = true
+
+
+func _on_player_hitbox_body_exited(body: Node2D) -> void:
+	if body.has_method("enemy"):
+		enemy_inattack_range = false
+		
+func enemy_attack():
+	if enemy_inattack_range and enemy_attack_cooldown == true:
+		health = health - Global.slime_damage
+		enemy_attack_cooldown = false
+		$AttackCooldown.start()
+		print("Player health = ", health)
+
+
+func _on_attack_cooldown_timeout() -> void:
+	enemy_attack_cooldown = true
+	
+func attack():
+	var dir = current_dir
+	if Input.is_action_just_pressed("attack"):
+		Global.player_current_attack = true
+		attack_ip = true
+		
+func _on_deal_attack_timer_timeout() -> void:
+	$DealAttackTimer.stop()
+	Global.player_current_attack = false
+	attack_ip = false

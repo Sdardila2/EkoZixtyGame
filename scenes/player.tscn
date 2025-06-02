@@ -1,6 +1,6 @@
-[gd_scene load_steps=112 format=3 uid="uid://dmhjjjsc36bom"]
+[gd_scene load_steps=113 format=3 uid="uid://dmhjjjsc36bom"]
 
-[ext_resource type="Script" uid="uid://bp6jxfjvjuvgk" path="res://scripts/player.gd" id="1_4ntmi"]
+[ext_resource type="Script" uid="uid://bp6jxfjvjuvgk" path="res://scripts/Player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://cv036xtkefcnc" path="res://sprites/player/ATTACK 2/attack2_down.png" id="2_jej6c"]
 [ext_resource type="Texture2D" uid="uid://oxr30ne58hik" path="res://sprites/player/IDLE/idle_down.png" id="3_b5dsp"]
 [ext_resource type="Texture2D" uid="uid://da8230qbuydcf" path="res://sprites/player/ATTACK 2/attack2_left.png" id="3_f1ej7"]
@@ -752,6 +752,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jej6c"]
+radius = 19.0
+
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 2
 collision_layer = 4097
@@ -771,3 +774,20 @@ frame = 7
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlayerHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_jej6c")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="DealAttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="DealAttackTimer" to="." method="_on_deal_attack_timer_timeout"]
