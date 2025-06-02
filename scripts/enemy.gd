@@ -112,13 +112,14 @@ func flash_red() -> void:
 		await get_tree().create_timer(delay).timeout
 		
 func updateHealth():
+	$TextureProgressBar.max_value = GlobalVariables.slime_health
 	var healthbar = $TextureProgressBar
 	healthbar.value = health
 	
 func _on_regen_time_timeout() -> void:
-	if health < 5:
-		health = health + 1
-		if health > 5:
-			health = 5
+	if health < GlobalVariables.slime_health:
+		health = health + GlobalVariables.slime_health/5
+		if health > GlobalVariables.slime_health:
+			health = GlobalVariables.slime_health
 	if health <= 0:
 		health = 0

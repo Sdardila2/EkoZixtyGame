@@ -123,15 +123,17 @@ func _on_deal_attack_timer_timeout() -> void:
 	GlobalVariables.player_current_attack = false
 	attack_ip = false
 
+
 func updateHealth():
+	$TextureProgressBar.max_value = GlobalVariables.player_health
 	var healthbar = $TextureProgressBar
 	healthbar.value = health
 
 func _on_regen_time_timeout() -> void:
-	if health < 5:
-		health = health + 1
-		if health > 5:
-			health = 5
+	if health < GlobalVariables.player_health:
+		health = health + GlobalVariables.player_health/5
+		if health > GlobalVariables.player_health:
+			health = GlobalVariables.player_health
 	if health <= 0:
 		health = 0
 	

@@ -1,8 +1,10 @@
-[gd_scene load_steps=55 format=3 uid="uid://p4u0ovsf0etn"]
+[gd_scene load_steps=54 format=3 uid="uid://p4u0ovsf0etn"]
 
 [ext_resource type="Texture2D" uid="uid://dmv5abaqfdeia" path="res://sprites/enemies/slime.png" id="1_jtoot"]
 [ext_resource type="Script" uid="uid://c7s2oftxhg7gh" path="res://scripts/enemy.gd" id="1_palws"]
-[ext_resource type="Texture2D" uid="uid://bs2doy4gupre" path="res://sprites/helth bar.png" id="3_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://bkwjbpl55t7vo" path="res://sprites/Pixel Health Bar/Bar/no health bar.png" id="3_c4w8v"]
+[ext_resource type="Texture2D" uid="uid://dlqw80l67s5gj" path="res://sprites/Pixel Health Bar/Bar/empty health bar.png" id="4_xwavj"]
+[ext_resource type="Texture2D" uid="uid://fktr651qcsyr" path="res://sprites/Pixel Health Bar/Bar/health bar.png" id="5_nenq2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_palws"]
 atlas = ExtResource("1_jtoot")
@@ -359,18 +361,6 @@ size = Vector2(18, 12)
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
 radius = 15.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vab5u"]
-atlas = ExtResource("3_4ra3w")
-region = Rect2(37, 39, 22, 7)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qiusc"]
-atlas = ExtResource("3_4ra3w")
-region = Rect2(37, 39, 22, 7)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ie7m"]
-atlas = ExtResource("3_4ra3w")
-region = Rect2(5, 7, 22, 7)
-
 [node name="Enemy" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 257
@@ -406,17 +396,14 @@ wait_time = 5.0
 autostart = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = -11.0
-offset_top = -23.0
-offset_right = 11.0
-offset_bottom = -16.0
-max_value = 5.0
-texture_under = SubResource("AtlasTexture_vab5u")
-texture_over = SubResource("AtlasTexture_qiusc")
-texture_progress = SubResource("AtlasTexture_5ie7m")
-tint_under = Color(0, 1, 0, 1)
-tint_over = Color(0, 1, 0, 1)
-tint_progress = Color(0, 1, 0, 1)
+offset_left = -32.0
+offset_top = -22.0
+offset_right = 96.0
+offset_bottom = -6.0
+scale = Vector2(0.5, 0.5)
+texture_under = ExtResource("3_c4w8v")
+texture_over = ExtResource("4_xwavj")
+texture_progress = ExtResource("5_nenq2")
 
 [connection signal="body_entered" from="Detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection_area" to="." method="_on_detection_area_body_exited"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bs2doy4gupre"
-path="res://.godot/imported/helth bar.png-ec3056a0816ab5565b3e999f46c7c513.ctex"
+path="res://.godot/imported/helth bar.png-58a01d3f307427f04948e19448535353.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/helth bar.png"
-dest_files=["res://.godot/imported/helth bar.png-ec3056a0816ab5565b3e999f46c7c513.ctex"]
+source_file="res://sprites/Pixel Health Bar/helth bar.png"
+dest_files=["res://.godot/imported/helth bar.png-58a01d3f307427f04948e19448535353.ctex"]
 
 [params]
 
