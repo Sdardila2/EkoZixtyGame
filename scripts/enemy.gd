@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-@export var speed = Global.enemy_speed
+@export var speed = GlobalVariables.enemy_speed
 var player: Node2D = null
 var player_chase := false
 var returning := false
 var start_position: Vector2
 
-var health = Global.slime_health
+var health = GlobalVariables.slime_health
 var player_inattack_zone = false
 var can_take_damage = true
 var dying = false
@@ -79,8 +79,8 @@ func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 		player_inattack_zone = false
 
 func deal_with_damage():
-	if player_inattack_zone and Global.player_current_attack and can_take_damage:
-		health -= Global.player_damage
+	if player_inattack_zone and GlobalVariables.player_current_attack and can_take_damage:
+		health -= GlobalVariables.player_damage
 		can_take_damage = false
 		$TakeDamageCooldown.start()
 		flash_red()

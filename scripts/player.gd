@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = Global.player_health
+var health = GlobalVariables.player_health
 var player_alive = true
 
-var SPEED = Global.player_speed
+var SPEED = GlobalVariables.player_speed
 var current_dir = "down"
 var attacking = false
 
@@ -104,7 +104,7 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 		
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - Global.slime_damage
+		health = health - GlobalVariables.slime_damage
 		enemy_attack_cooldown = false
 		$AttackCooldown.start()
 
@@ -114,10 +114,10 @@ func _on_attack_cooldown_timeout() -> void:
 func attack():
 	var _dir = current_dir
 	if Input.is_action_just_pressed("attack"):
-		Global.player_current_attack = true
+		GlobalVariables.player_current_attack = true
 		attack_ip = true
 		
 func _on_deal_attack_timer_timeout() -> void:
 	$DealAttackTimer.stop()
-	Global.player_current_attack = false
+	GlobalVariables.player_current_attack = false
 	attack_ip = false
