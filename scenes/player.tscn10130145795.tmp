@@ -813,9 +813,9 @@ texture_progress = ExtResource("17_4r5pv")
 
 [node name="InventoryUi" parent="." instance=ExtResource("21_l71n6")]
 offset_left = -45.0
-offset_top = -108.0
+offset_top = -94.0
 offset_right = -45.0
-offset_bottom = -108.0
+offset_bottom = -94.0
 
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]

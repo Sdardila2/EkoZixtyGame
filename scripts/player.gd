@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var inventory : Inventory
+
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = GlobalVariables.player_health
