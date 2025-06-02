@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	player_movement(delta)
 	enemy_attack()
 	attack()
+	updateHealth()
 	
 	if health <= 0:
 		player_alive = false #add endscreen, etc.
@@ -121,3 +122,16 @@ func _on_deal_attack_timer_timeout() -> void:
 	$DealAttackTimer.stop()
 	GlobalVariables.player_current_attack = false
 	attack_ip = false
+
+func updateHealth():
+	var healthbar = $TextureProgressBar
+	healthbar.value = health
+
+func _on_regen_time_timeout() -> void:
+	if health < 5:
+		health = health + 1
+		if health > 5:
+			health = 5
+	if health <= 0:
+		health = 0
+	

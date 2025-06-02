@@ -1,7 +1,8 @@
-[gd_scene load_steps=51 format=3 uid="uid://p4u0ovsf0etn"]
+[gd_scene load_steps=55 format=3 uid="uid://p4u0ovsf0etn"]
 
 [ext_resource type="Texture2D" uid="uid://dmv5abaqfdeia" path="res://sprites/enemies/slime.png" id="1_jtoot"]
-[ext_resource type="Script" uid="uid://c7s2oftxhg7gh" path="res://scripts/Enemy.gd" id="1_palws"]
+[ext_resource type="Script" uid="uid://c7s2oftxhg7gh" path="res://scripts/enemy.gd" id="1_palws"]
+[ext_resource type="Texture2D" uid="uid://bs2doy4gupre" path="res://sprites/helth bar.png" id="3_4ra3w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_palws"]
 atlas = ExtResource("1_jtoot")
@@ -358,6 +359,18 @@ size = Vector2(18, 12)
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
 radius = 15.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vab5u"]
+atlas = ExtResource("3_4ra3w")
+region = Rect2(37, 39, 22, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiusc"]
+atlas = ExtResource("3_4ra3w")
+region = Rect2(37, 39, 22, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ie7m"]
+atlas = ExtResource("3_4ra3w")
+region = Rect2(5, 7, 22, 7)
+
 [node name="Enemy" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 257
@@ -366,9 +379,8 @@ script = ExtResource("1_palws")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a6ccg")
-animation = &"death"
-frame = 4
-frame_progress = 1.0
+animation = &"walk_down"
+frame_progress = 0.204426
 
 [node name="Detection_area" type="Area2D" parent="."]
 collision_layer = 4096
@@ -389,8 +401,26 @@ shape = SubResource("CircleShape2D_md0e3")
 [node name="TakeDamageCooldown" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="RegenTime" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 11.0
+offset_bottom = -16.0
+max_value = 5.0
+texture_under = SubResource("AtlasTexture_vab5u")
+texture_over = SubResource("AtlasTexture_qiusc")
+texture_progress = SubResource("AtlasTexture_5ie7m")
+tint_under = Color(0, 1, 0, 1)
+tint_over = Color(0, 1, 0, 1)
+tint_progress = Color(0, 1, 0, 1)
+
 [connection signal="body_entered" from="Detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="EnemyHitbox" to="." method="_on_enemy_hitbox_body_entered"]
 [connection signal="body_exited" from="EnemyHitbox" to="." method="_on_enemy_hitbox_body_exited"]
 [connection signal="timeout" from="TakeDamageCooldown" to="." method="_on_take_damage_cooldown_timeout"]
+[connection signal="timeout" from="RegenTime" to="." method="_on_regen_time_timeout"]

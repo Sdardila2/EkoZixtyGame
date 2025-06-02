@@ -19,6 +19,7 @@ func _physics_process(_delta: float) -> void:
 		return  # No hacer nada mientras muere
 
 	deal_with_damage()
+	updateHealth()
 
 	if player_chase and player:
 		var direction = (player.global_position - global_position).normalized()
@@ -109,3 +110,15 @@ func flash_red() -> void:
 		var t = float(i) / steps
 		sprite.self_modulate = start_color.lerp(end_color, t)
 		await get_tree().create_timer(delay).timeout
+		
+func updateHealth():
+	var healthbar = $TextureProgressBar
+	healthbar.value = health
+	
+func _on_regen_time_timeout() -> void:
+	if health < 5:
+		health = health + 1
+		if health > 5:
+			health = 5
+	if health <= 0:
+		health = 0

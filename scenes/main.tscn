@@ -13,3 +13,4 @@ position = Vector2(88, 104)
 
 [node name="Player" parent="." instance=ExtResource("2_0bbpv")]
 position = Vector2(150, 25)
+collision_mask = 272
