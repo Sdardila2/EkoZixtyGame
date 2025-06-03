@@ -19,6 +19,7 @@ var ex_limit = 100
 var health = GlobalVariables.player_health
 var max_health = health
 var armor = GlobalVariables.player_armor
+var damage = GlobalVariables.player_damage
 
 signal changed_xp(value)
 signal changed_xp_limit(value)
@@ -26,6 +27,7 @@ signal changed_hp(value)
 signal changed_max_hp(value)
 signal changed_armor(value)
 signal changed_level(value)
+signal changed_damage(value)
 
 func _physics_process(delta: float) -> void:
 	if attacking:
@@ -86,6 +88,8 @@ func _process(_delta):
 		start_attack()
 	if Input.is_action_just_pressed("level_up"):
 		dev_force_level_up()
+	if Input.is_action_just_pressed("gain_xp") and level < 30:
+		add_xp()
 
 func start_attack():
 	attacking = true
@@ -164,23 +168,27 @@ func _on_enemy_slime_died(value: Variant) -> void:
 	changed_xpe()
 		
 func changed_xpe():
-	if experience >= ex_limit and level < 30:
-		level += 1
-		emit_signal("changed_level", level)
+	if level < 30:
+		if experience >= ex_limit:
+			level += 1
+			emit_signal("changed_level", level)
 
-		ex_limit = 100 * pow(level, 1.5)
-		emit_signal("changed_xp_limit", ex_limit)
+			ex_limit = 100 * pow(level, 1.5)
+			emit_signal("changed_xp_limit", ex_limit)
 
-		max_health = GlobalVariables.player_health + (level - 1) * 250
-		emit_signal("changed_max_hp", max_health)
+			max_health = GlobalVariables.player_health + (level - 1) * 250
+			emit_signal("changed_max_hp", max_health)
 
-		armor = (level - 1) * 20
-		emit_signal("changed_armor", armor)
-
-		experience = 0
-
-	# Siempre emitir experiencia actual
-	emit_signal("changed_xp", experience)
+			armor = (level - 1) * 20
+			emit_signal("changed_armor", armor)
+			
+			damage += 20
+			emit_signal("changed_damage", damage)
+			
+			experience = 0
+		emit_signal("changed_xp", experience)
+	else:
+		pass
 
 func dev_force_level_up():
 	if level < 30:
@@ -189,3 +197,12 @@ func dev_force_level_up():
 		print("DEBUG: Nivel forzado a ", level)
 	else:
 		print("DEBUG: Nivel máximo alcanzado")
+
+func add_xp():
+	experience += 100
+	changed_xpe()
+	print(level)
+	print(experience)
+	
+	
+	
