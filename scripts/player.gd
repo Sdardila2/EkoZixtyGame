@@ -84,6 +84,8 @@ func _process(_delta):
 	# Entrada de ataque
 	if Input.is_action_just_pressed("attack") and not attacking:
 		start_attack()
+	if Input.is_action_just_pressed("level_up"):
+		dev_force_level_up()
 
 func start_attack():
 	attacking = true
@@ -162,15 +164,28 @@ func _on_enemy_slime_died(value: Variant) -> void:
 	changed_xpe()
 		
 func changed_xpe():
-	if experience == ex_limit:
+	if experience >= ex_limit and level < 30:
 		level += 1
 		emit_signal("changed_level", level)
-		ex_limit = 100 * (level**1.5)
+
+		ex_limit = 100 * pow(level, 1.5)
 		emit_signal("changed_xp_limit", ex_limit)
-		max_health = GlobalVariables.player_health + (level-1) * 250
+
+		max_health = GlobalVariables.player_health + (level - 1) * 250
 		emit_signal("changed_max_hp", max_health)
-		armor = (level-1)*20
+
+		armor = (level - 1) * 20
 		emit_signal("changed_armor", armor)
+
 		experience = 0
+
+	# Siempre emitir experiencia actual
 	emit_signal("changed_xp", experience)
-	
+
+func dev_force_level_up():
+	if level < 30:
+		experience = ex_limit
+		changed_xpe()
+		print("DEBUG: Nivel forzado a ", level)
+	else:
+		print("DEBUG: Nivel máximo alcanzado")
