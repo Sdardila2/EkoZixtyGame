@@ -129,29 +129,22 @@ label_settings = SubResource("LabelSettings_45d2x")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 3.0
+offset_right = 211.0
+offset_bottom = 77.0
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Button"]
 z_index = -1
 layout_mode = 0
-offset_left = 120.0
-offset_top = 1.0
-offset_right = 208.0
-offset_bottom = 79.0
+offset_left = -111.0
+offset_top = -10.0
+offset_right = 92.0
+offset_bottom = 68.0
 texture = ExtResource("2_2hut1")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
-
-[node name="AttackDamage" type="Label" parent="NinePatchRect2"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -16.0
-offset_top = 4.0
-offset_right = 16.0
-offset_bottom = 20.3333
-grow_horizontal = 2
-label_settings = SubResource("LabelSettings_45d2x")
-horizontal_alignment = 1
-vertical_alignment = 1
