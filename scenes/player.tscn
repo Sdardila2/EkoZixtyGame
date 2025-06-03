@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cxo3u0rc5pnsf" path="res://sprites/player/RUN/run_left.png" id="8_0fjhn"]
 [ext_resource type="Texture2D" uid="uid://dovenji5cnkj0" path="res://sprites/player/RUN/run_right.png" id="9_p1b0u"]
 [ext_resource type="Texture2D" uid="uid://bhul5o17sr74" path="res://sprites/player/RUN/run_up.png" id="10_2u0y0"]
-[ext_resource type="Script" uid="uid://drmctkpufs2kp" path="res://scripts/PLayerCamera.gd" id="14_p7iby"]
+[ext_resource type="Script" path="res://scripts/PLayerCamera.gd" id="14_p7iby"]
 [ext_resource type="Texture2D" uid="uid://bkwjbpl55t7vo" path="res://sprites/Pixel Health Bar/Bar/no health bar.png" id="15_qfm1y"]
 [ext_resource type="Texture2D" uid="uid://dlqw80l67s5gj" path="res://sprites/Pixel Health Bar/Bar/empty health bar.png" id="16_fulsm"]
 [ext_resource type="Texture2D" uid="uid://fktr651qcsyr" path="res://sprites/Pixel Health Bar/Bar/health bar.png" id="17_4r5pv"]

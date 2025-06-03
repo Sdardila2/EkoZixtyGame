@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctg71x8gknn5u"]
+
+[ext_resource type="Texture2D" uid="uid://dxx8xiqrflioq" path="res://imagenes/menu Pixel art.webp" id="1_m653e"]
+[ext_resource type="Script" uid="uid://bxbci8njtgs7q" path="res://opciones.gd" id="1_vrcbp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+bg_color = Color(0.0445579, 0.0445578, 0.0445578, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
+bg_color = Color(0.0781564, 0.0781565, 0.0781564, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0.0801357, 0.0778938, 0.0744723, 1)
+
+[node name="Opciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vrcbp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 273.0
+offset_top = 169.0
+offset_right = -281.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.20033, 0.20033, 0.20033, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = 3.0
+offset_right = -5.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m653e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = -62.0
+offset_right = 114.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Volumen" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_vjb58")
+text = "VOLUMEN"
+
+[node name="Instrucciones" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_con2f")
+text = "INSTRUCCIONES"
+
+[node name="Atras" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+text = "ATRAS"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Atras" to="." method="_on_atras_pressed"]
