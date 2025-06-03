@@ -1,15 +1,15 @@
 [gd_scene load_steps=25 format=3 uid="uid://l1hb3kphswy6"]
 
-[ext_resource type="Texture2D" path="res://sprites/Sprout Lands - UI Pack - Basic pack/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_kplmn"]
+[ext_resource type="Texture2D" uid="uid://71ae8w3v0fth" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_kplmn"]
 [ext_resource type="Script" uid="uid://d2xaxi37m7kdw" path="res://scenes/popup_menu_manager.gd" id="1_ria60"]
-[ext_resource type="Texture2D" path="res://sprites/Sprout Lands - UI Pack - Basic pack/Sprout Lands - UI Pack - Basic pack/Sprite sheets/modifided version of the sprite sheet.png" id="2_fnge6"]
+[ext_resource type="Texture2D" uid="uid://bs8frtpv1c6va" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/modifided version of the sprite sheet.png" id="2_fnge6"]
 [ext_resource type="Script" uid="uid://c8deyw2vfvkv3" path="res://scenes/stat_display_menu_manager.gd" id="3_fqvwy"]
-[ext_resource type="FontFile" path="res://sprites/Sprout Lands - UI Pack - Basic pack/Sprout Lands - UI Pack - Basic pack/fonts/toybox_font/ToyBox.ttf" id="4_ria60"]
-[ext_resource type="Texture2D" path="res://sprites/Sprout Lands - UI Pack - Basic pack/Sprout Lands - UI Pack - Basic pack/Sprite sheets/sampleimage.jpg" id="6_6qwj3"]
-[ext_resource type="Texture2D" path="res://sprites/Sprout Lands - UI Pack - Basic pack/Sprout Lands - UI Pack - Basic pack/custom sprites/audio-off-icon.png" id="7_jlb72"]
-[ext_resource type="Texture2D" path="res://sprites/Sprout Lands - UI Pack - Basic pack/Sprout Lands - UI Pack - Basic pack/custom sprites/audio-on-icon.png" id="8_huati"]
-[ext_resource type="Texture2D" path="res://sprites/Sprout Lands - UI Pack - Basic pack/Sprout Lands - UI Pack - Basic pack/custom sprites/brightness-off-icon.png" id="9_yjjyl"]
-[ext_resource type="Texture2D" path="res://sprites/Sprout Lands - UI Pack - Basic pack/Sprout Lands - UI Pack - Basic pack/custom sprites/brightness-on-icon.png" id="10_ve7rr"]
+[ext_resource type="FontFile" uid="uid://iyko7vrordi8" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.ttf" id="4_ria60"]
+[ext_resource type="Texture2D" uid="uid://dmjqxcpn8oxuh" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/sampleimage.jpg" id="6_6qwj3"]
+[ext_resource type="Texture2D" uid="uid://c6o6b1nb8x41y" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/audio-off-icon.png" id="7_jlb72"]
+[ext_resource type="Texture2D" uid="uid://b0q4ri132mo1d" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/audio-on-icon.png" id="8_huati"]
+[ext_resource type="Texture2D" uid="uid://btp5k3avs4lq0" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/brightness-off-icon.png" id="9_yjjyl"]
+[ext_resource type="Texture2D" uid="uid://dllpchlqm025b" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/brightness-on-icon.png" id="10_ve7rr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlb72"]
 texture = ExtResource("1_kplmn")
