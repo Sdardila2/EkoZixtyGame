@@ -179,7 +179,7 @@ func changed_xpe():
 			max_health = GlobalVariables.player_health + (level - 1) * 250
 			emit_signal("changed_max_hp", max_health)
 
-			armor = (level - 1) * 20
+			armor += (level - 1) * 20
 			emit_signal("changed_armor", armor)
 			
 			damage += 20

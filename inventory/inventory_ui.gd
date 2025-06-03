@@ -11,7 +11,7 @@ var xp_limit = 100
 var health = 2000
 var max_health = 2000
 var level = 1
-var armor = 0
+var armor = 30
 var damage = 100
 
 func _ready():
@@ -73,6 +73,7 @@ func _on_player_changed_armor(value: Variant) -> void:
 func _on_player_changed_damage(value: Variant) -> void:
 	damage = value
 	$NinePatchRect2/AttackDamage.text = "DMG:"+str(value)
+	
 func _on_player_changed_xp_limit(value: Variant) -> void:
 	xp_limit = value
 
