@@ -1,23 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://d22o5rom8pwv3"]
+[gd_scene load_steps=6 format=3 uid="uid://d22o5rom8pwv3"]
 
 [ext_resource type="Script" uid="uid://bqw5xry5083rr" path="res://inventory/inventory_ui.gd" id="1_5v8q7"]
 [ext_resource type="Texture2D" uid="uid://c5yhgyfummsg7" path="res://sprites/InventoryUi/inventory-background.png" id="2_2hut1"]
 [ext_resource type="PackedScene" uid="uid://jacao4catd4s" path="res://inventory/inventory_slot.tscn" id="3_cedrj"]
+[ext_resource type="FontFile" uid="uid://d1yr4huk3wbtk" path="res://fonts/ByteBounce.ttf" id="4_7rvkw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_45d2x"]
+font = ExtResource("4_7rvkw")
 
 [node name="InventoryUi" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1830.0
-offset_bottom = -1018.0
+offset_right = -1838.0
+offset_bottom = -1000.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5v8q7")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 90.0
+offset_right = 203.0
 offset_bottom = 80.0
 texture = ExtResource("2_2hut1")
 patch_margin_left = 6
@@ -27,16 +31,13 @@ patch_margin_bottom = 6
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -38.0
-offset_top = -28.0
-offset_right = 38.0
-offset_bottom = 28.0
-grow_horizontal = 2
+offset_left = 3.0
+offset_top = -38.0
+offset_right = 79.0
+offset_bottom = 38.0
 grow_vertical = 2
 columns = 4
 
@@ -87,3 +88,43 @@ layout_mode = 2
 
 [node name="InventorySlot16" parent="NinePatchRect/GridContainer" instance=ExtResource("3_cedrj")]
 layout_mode = 2
+
+[node name="PlayerHealth" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 2.0
+offset_right = 114.0
+offset_bottom = 18.3333
+label_settings = SubResource("LabelSettings_45d2x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerArmor" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 22.0
+offset_right = 114.0
+offset_bottom = 38.3333
+label_settings = SubResource("LabelSettings_45d2x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerLevel" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 42.0
+offset_right = 114.0
+offset_bottom = 58.3333
+label_settings = SubResource("LabelSettings_45d2x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerXp" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 61.0
+offset_right = 114.0
+offset_bottom = 77.3333
+label_settings = SubResource("LabelSettings_45d2x")
+horizontal_alignment = 1
+vertical_alignment = 1
