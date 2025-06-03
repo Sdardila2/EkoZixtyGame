@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = GlobalVariables.player_health
+
 var player_alive = true
 
 var SPEED = GlobalVariables.player_speed
@@ -13,6 +13,20 @@ var attacking = false
 
 var attack_ip = false
 
+var level = GlobalVariables.player_level
+var experience = 0
+var ex_limit = 100
+var health = GlobalVariables.player_health
+var max_health = health
+var armor = GlobalVariables.player_armor
+
+signal changed_xp(value)
+signal changed_xp_limit(value)
+signal changed_hp(value)
+signal changed_max_hp(value)
+signal changed_armor(value)
+signal changed_level(value)
+
 func _physics_process(delta: float) -> void:
 	if attacking:
 		return  # bloquea todo mientras ataca
@@ -20,13 +34,13 @@ func _physics_process(delta: float) -> void:
 	enemy_attack()
 	attack()
 	updateHealth()
-	
+	 
 	if health <= 0:
 		player_alive = false #add endscreen, etc.
 		health = 0
 		print("Player has been slained")
 		self.queue_free()
-
+		
 func player_movement(_delta):
 	velocity = Vector2.ZERO
 
@@ -107,7 +121,8 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 		
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - GlobalVariables.slime_damage
+		health = health - (GlobalVariables.slime_damage*100)/(100+GlobalVariables.player_armor)
+		emit_signal("changed_hp", round(int(health)))
 		enemy_attack_cooldown = false
 		$AttackCooldown.start()
 
@@ -127,15 +142,35 @@ func _on_deal_attack_timer_timeout() -> void:
 
 
 func updateHealth():
-	$TextureProgressBar.max_value = GlobalVariables.player_health
+	$TextureProgressBar.max_value = max_health
 	var healthbar = $TextureProgressBar
 	healthbar.value = health
-
+	
 func _on_regen_time_timeout() -> void:
-	if health < GlobalVariables.player_health:
-		health = health + GlobalVariables.player_health/5
-		if health > GlobalVariables.player_health:
-			health = GlobalVariables.player_health
+	if health < max_health:
+		health+=1.8
+		emit_signal("changed_hp", round(int(health)))
+	if health > max_health:
+		health = max_health
+		emit_signal("changed_hp", round(int(health)))
+			
 	if health <= 0:
 		health = 0
+	
+func _on_enemy_slime_died(value: Variant) -> void:
+	experience += value
+	changed_xpe()
+		
+func changed_xpe():
+	if experience == ex_limit:
+		level += 1
+		emit_signal("changed_level", level)
+		ex_limit = 100 * (level**1.5)
+		emit_signal("changed_xp_limit", ex_limit)
+		max_health = GlobalVariables.player_health + (level-1) * 250
+		emit_signal("changed_max_hp", max_health)
+		armor = (level-1)*20
+		emit_signal("changed_armor", armor)
+		experience = 0
+	emit_signal("changed_xp", experience)
 	

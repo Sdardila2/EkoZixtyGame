@@ -4,8 +4,14 @@ extends Control
 @onready var slots : Array = $NinePatchRect/GridContainer.get_children()
 
 var is_open = false
+var xp_limit = 100
+var max_health = 2000
 
 func _ready():
+	$NinePatchRect/PlayerHealth.text = "HP:"+str(GlobalVariables.player_health)+"/"+str(max_health)
+	$NinePatchRect/PlayerArmor.text = "ARMOR:"+str(GlobalVariables.player_armor)
+	$NinePatchRect/PlayerLevel.text = "LEVEL:"+str(GlobalVariables.player_level)
+	$NinePatchRect/PlayerXp.text = "XP:"+str(GlobalVariables.player_xp)+"/"+str(xp_limit)
 	update_slots()
 	close()
 
@@ -27,3 +33,21 @@ func open():
 func close():
 	visible = false
 	is_open = false
+
+func _on_player_changed_xp(value: Variant) -> void:
+	$NinePatchRect/PlayerXp.text = "XP:"+str(value)+"/"+str(round(int(xp_limit)))
+
+func _on_player_changed_hp(value: Variant) -> void:
+	$NinePatchRect/PlayerHealth.text = "HP:"+str(value)+"/"+str(max_health)
+
+func _on_player_changed_level(value: Variant) -> void:
+	$NinePatchRect/PlayerLevel.text = "LEVEL:"+str(value)
+	
+func _on_player_changed_armor(value: Variant) -> void:
+	$NinePatchRect/PlayerArmor.text = "ARMOR:"+str(value)
+
+func _on_player_changed_xp_limit(value: Variant) -> void:
+	xp_limit = value
+
+func _on_player_changed_max_hp(value: Variant) -> void:
+	max_health = value

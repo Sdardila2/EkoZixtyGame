@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dp1pwqij74cah"]
+
+[sub_resource type="FontFile" id="FontFile_jcdww"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[resource]
+Button/fonts/font = SubResource("FontFile_jcdww")

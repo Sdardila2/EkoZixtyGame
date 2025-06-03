@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = GlobalVariables.enemy_speed
+signal slime_died(value)
 var player: Node2D = null
 var player_chase := false
 var returning := false
@@ -81,7 +82,7 @@ func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 
 func deal_with_damage():
 	if player_inattack_zone and GlobalVariables.player_current_attack and can_take_damage:
-		health -= GlobalVariables.player_damage
+		health -= (GlobalVariables.player_damage*100)/(100+GlobalVariables.slime_armor)
 		can_take_damage = false
 		$TakeDamageCooldown.start()
 		flash_red()
@@ -94,10 +95,10 @@ func _on_take_damage_cooldown_timeout() -> void:
 
 func die() -> void:
 	dying = true
-	print("Slime has been slained")
 	$AnimatedSprite2D.play("death")
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
+	emit_signal("slime_died", 20)
 
 func flash_red() -> void:
 	var sprite = $AnimatedSprite2D

@@ -776,7 +776,7 @@ shape = SubResource("RectangleShape2D_jmxgq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0k3my")
-animation = &"attack_down"
+animation = &"idle_right"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("14_p7iby")
@@ -794,7 +794,6 @@ wait_time = 0.5
 wait_time = 0.5
 
 [node name="RegenTime" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
@@ -812,13 +811,20 @@ texture_over = ExtResource("16_fulsm")
 texture_progress = ExtResource("17_4r5pv")
 
 [node name="InventoryUi" parent="." instance=ExtResource("21_l71n6")]
-offset_left = -45.0
-offset_top = -108.0
-offset_right = -45.0
-offset_bottom = -108.0
+offset_left = -100.0
+offset_top = -124.0
+offset_right = -100.0
+offset_bottom = -124.0
 
+[connection signal="changed_armor" from="." to="InventoryUi" method="_on_player_changed_armor"]
+[connection signal="changed_hp" from="." to="InventoryUi" method="_on_player_changed_hp"]
+[connection signal="changed_level" from="." to="InventoryUi" method="_on_player_changed_level"]
+[connection signal="changed_max_hp" from="." to="InventoryUi" method="_on_player_changed_max_hp"]
+[connection signal="changed_xp" from="." to="InventoryUi" method="_on_player_changed_xp"]
+[connection signal="changed_xp_limit" from="." to="InventoryUi" method="_on_player_changed_xp_limit"]
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="DealAttackTimer" to="." method="_on_deal_attack_timer_timeout"]
 [connection signal="timeout" from="RegenTime" to="." method="_on_regen_time_timeout"]
+[connection signal="value_changed" from="TextureProgressBar" to="InventoryUi" method="_on_texture_progress_bar_value_changed"]
