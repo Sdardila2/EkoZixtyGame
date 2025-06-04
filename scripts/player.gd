@@ -1,6 +1,5 @@
 extends CharacterBody2D
-
-@export var inventory : Inventory
+var inv : Inventory = preload("res://inventory/PlayerInventory.tres")
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
@@ -28,7 +27,11 @@ signal changed_max_hp(value)
 signal changed_armor(value)
 signal changed_level(value)
 signal changed_damage(value)
+signal detected_item(value)
 
+func _ready() -> void:
+	verify_inventory()
+	
 func _physics_process(delta: float) -> void:
 	if attacking:
 		return  # bloquea todo mientras ataca
@@ -36,12 +39,21 @@ func _physics_process(delta: float) -> void:
 	enemy_attack()
 	attack()
 	updateHealth()
+	
 	 
 	if health <= 0:
 		player_alive = false #add endscreen, etc.
 		health = 0
 		print("Player has been slained")
 		self.queue_free()
+		
+func verify_inventory():
+	for i in inv.items:
+		if i == null:
+			pass
+		elif str(i) == "<Resource#-9223372002662808145>":
+			damage+=50
+			emit_signal("changed_damage", damage)
 		
 func player_movement(_delta):
 	velocity = Vector2.ZERO
@@ -176,10 +188,10 @@ func changed_xpe():
 			ex_limit = 100 * pow(level, 1.5)
 			emit_signal("changed_xp_limit", ex_limit)
 
-			max_health = GlobalVariables.player_health + (level - 1) * 250
+			max_health = max_health + (level - 1) * 250
 			emit_signal("changed_max_hp", max_health)
 
-			armor += (level - 1) * 20
+			armor = round(int((armor) * 1.1))
 			emit_signal("changed_armor", armor)
 			
 			damage += 20
@@ -194,15 +206,12 @@ func dev_force_level_up():
 	if level < 30:
 		experience = ex_limit
 		changed_xpe()
-		print("DEBUG: Nivel forzado a ", level)
 	else:
-		print("DEBUG: Nivel máximo alcanzado")
+		pass
 
 func add_xp():
 	experience += 100
 	changed_xpe()
-	print(level)
-	print(experience)
 	
 	
 	

@@ -1,7 +1,6 @@
-[gd_scene load_steps=119 format=3 uid="uid://dmhjjjsc36bom"]
+[gd_scene load_steps=118 format=3 uid="uid://dmhjjjsc36bom"]
 
 [ext_resource type="Script" uid="uid://bp6jxfjvjuvgk" path="res://scripts/player.gd" id="1_4ntmi"]
-[ext_resource type="Resource" uid="uid://cagf2gjl541fc" path="res://inventory/PlayerInventory.tres" id="2_fulsm"]
 [ext_resource type="Texture2D" uid="uid://cv036xtkefcnc" path="res://sprites/player/ATTACK 2/attack2_down.png" id="2_jej6c"]
 [ext_resource type="Texture2D" uid="uid://oxr30ne58hik" path="res://sprites/player/IDLE/idle_down.png" id="3_b5dsp"]
 [ext_resource type="Texture2D" uid="uid://da8230qbuydcf" path="res://sprites/player/ATTACK 2/attack2_left.png" id="3_f1ej7"]
@@ -768,7 +767,6 @@ collision_mask = 16
 motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_4ntmi")
-inventory = ExtResource("2_fulsm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 7.5)
@@ -811,6 +809,7 @@ texture_over = ExtResource("16_fulsm")
 texture_progress = ExtResource("17_4r5pv")
 
 [node name="InventoryUi" parent="." instance=ExtResource("21_l71n6")]
+z_index = 1
 offset_left = -100.0
 offset_top = -124.0
 offset_right = -100.0

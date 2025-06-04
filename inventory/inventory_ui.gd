@@ -11,7 +11,7 @@ var xp_limit = 100
 var health = 2000
 var max_health = 2000
 var level = 1
-var armor = 30
+var armor = 0
 var damage = 100
 
 func _ready():
@@ -67,7 +67,7 @@ func _on_player_changed_level(value: Variant) -> void:
 	$NinePatchRect/PlayerLevel.text = "LEVEL:"+str(value)
 	
 func _on_player_changed_armor(value: Variant) -> void:
-	armor+=value
+	armor=value
 	$NinePatchRect/PlayerArmor.text = "ARMOR:"+str(value)
 	
 func _on_player_changed_damage(value: Variant) -> void:

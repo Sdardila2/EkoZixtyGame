@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=4 format=3 uid="uid://cagf2gjl541fc"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=5 format=3 uid="uid://cagf2gjl541fc"]
 
 [ext_resource type="Script" uid="uid://dqxomsy73egxb" path="res://inventory/InventoryItem.gd" id="1_5imdx"]
 [ext_resource type="Resource" uid="uid://b33rp4r3sflva" path="res://inventory/items/Apple.tres" id="2_1dgi5"]
+[ext_resource type="Resource" uid="uid://b6wbyw6eopge" path="res://inventory/items/Lethal_Sword.tres" id="3_1dgi5"]
 [ext_resource type="Script" uid="uid://bbh5hlnxj6bdf" path="res://inventory/Inventory.gd" id="3_5imdx"]
 
 [resource]
 script = ExtResource("3_5imdx")
-items = Array[ExtResource("1_5imdx")]([ExtResource("2_1dgi5"), null, null, null, null, ExtResource("2_1dgi5"), ExtResource("2_1dgi5"), ExtResource("2_1dgi5"), null, null, ExtResource("2_1dgi5"), ExtResource("2_1dgi5"), ExtResource("2_1dgi5"), null, null, null])
+items = Array[ExtResource("1_5imdx")]([null, null, null, null, null, ExtResource("2_1dgi5"), ExtResource("2_1dgi5"), ExtResource("2_1dgi5"), ExtResource("3_1dgi5"), ExtResource("3_1dgi5"), ExtResource("2_1dgi5"), ExtResource("2_1dgi5"), ExtResource("2_1dgi5"), ExtResource("3_1dgi5"), ExtResource("3_1dgi5"), ExtResource("3_1dgi5")])
 metadata/_custom_type_script = "uid://bbh5hlnxj6bdf"

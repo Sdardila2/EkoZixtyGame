@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://b6wbyw6eopge"]
+
+[ext_resource type="Script" uid="uid://dqxomsy73egxb" path="res://inventory/InventoryItem.gd" id="1_h8t7n"]
+[ext_resource type="Texture2D" uid="uid://86ctwtuq228i" path="res://sprites/swords/Pack 6/2px/05.png" id="2_pdqag"]
+
+[resource]
+script = ExtResource("1_h8t7n")
+name = "LethalSword"
+texture = ExtResource("2_pdqag")
+metadata/_custom_type_script = "uid://dqxomsy73egxb"
