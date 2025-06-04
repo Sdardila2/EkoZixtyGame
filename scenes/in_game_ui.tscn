@@ -1,9 +1,9 @@
 [gd_scene load_steps=36 format=3 uid="uid://l1hb3kphswy6"]
 
 [ext_resource type="Texture2D" uid="uid://71ae8w3v0fth" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_kplmn"]
-[ext_resource type="Script" uid="uid://d2xaxi37m7kdw" path="res://scenes/popup_menu_manager.gd" id="1_ria60"]
+[ext_resource type="Script" uid="uid://d2xaxi37m7kdw" path="res://scripts/popup_menu_manager.gd" id="1_ria60"]
 [ext_resource type="Texture2D" uid="uid://bs8frtpv1c6va" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/modifided version of the sprite sheet.png" id="2_fnge6"]
-[ext_resource type="Script" uid="uid://c8deyw2vfvkv3" path="res://scenes/stat_display_menu_manager.gd" id="3_fqvwy"]
+[ext_resource type="Script" uid="uid://c8deyw2vfvkv3" path="res://scripts/stat_display_menu_manager.gd" id="3_fqvwy"]
 [ext_resource type="FontFile" uid="uid://iyko7vrordi8" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.ttf" id="4_ria60"]
 [ext_resource type="Texture2D" uid="uid://dmjqxcpn8oxuh" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/sampleimage.jpg" id="6_6qwj3"]
 [ext_resource type="Texture2D" uid="uid://c6o6b1nb8x41y" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/audio-off-icon.png" id="7_jlb72"]
@@ -647,7 +647,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="popupMenu" type="MarginContainer" parent="." node_paths=PackedStringArray("menu_screen", "open_menu_screen", "help_menu_screen", "settings_menu_screen", "pause_menu_screen", "open_menu_button", "close_menu_button", "open_help_button", "close_help_button", "open_settings_button", "close_settings_button", "open_pause_button", "close_pause_button", "open_quit_button")]
+[node name="popupMenu" type="MarginContainer" parent="." node_paths=PackedStringArray("menu_screen", "open_menu_screen", "help_menu_screen", "settings_menu_screen")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -659,16 +659,6 @@ menu_screen = NodePath("menu")
 open_menu_screen = NodePath("baseMenuOpenButtonContainer")
 help_menu_screen = NodePath("helpMenu")
 settings_menu_screen = NodePath("settingsMenu")
-pause_menu_screen = NodePath("../pauseMenu")
-open_menu_button = NodePath("baseMenuOpenButtonContainer/toggleMenuButton")
-close_menu_button = NodePath("menu/baseMenuScreen/VBoxContainer/toggleMenuButton")
-open_help_button = NodePath("menu/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/topButtonContainer/toggleHelpMenuButton")
-close_help_button = NodePath("helpMenu/exitButton/MarginContainer/toggleHelpMenuButton")
-open_settings_button = NodePath("menu/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/buttonButtonContainer2/toggleSettingsMenuButton")
-close_settings_button = NodePath("settingsMenu/exitButton/MarginContainer/toggleSettingsMenuButton")
-open_pause_button = NodePath("menu/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/topButtonContainer/pauseButton2")
-close_pause_button = NodePath("../pauseMenu/pauseButton")
-open_quit_button = NodePath("menu/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/buttonButtonContainer2/quitButton")
 
 [node name="menu" type="VBoxContainer" parent="popupMenu"]
 visible = false
