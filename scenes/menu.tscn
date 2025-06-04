@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bq4pof4eayfnv"]
 
 [ext_resource type="Script" uid="uid://bwa0538wb0ewg" path="res://scripts/menu.gd" id="1_vjb58"]
-[ext_resource type="Texture2D" uid="uid://b20kh4dnvtsv7" path="res://sprites/menu/Background.png" id="2_vjb58"]
+[ext_resource type="Texture2D" uid="uid://c5fmpaba8772e" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/imagenCHATgptMenu.png" id="2_4ytvr"]
 [ext_resource type="FontFile" uid="uid://criaoifxls3nh" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.otf" id="3_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://k2ks3sjl7hx" path="res://sprites/menu/PBP-Blank button.png" id="3_con2f"]
 [ext_resource type="Texture2D" uid="uid://dd55p62nhb76m" path="res://sprites/menu/PBP-V2.png" id="4_mhnvy"]
@@ -44,10 +44,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 273.0
-offset_top = 169.0
-offset_right = -281.0
-offset_bottom = -143.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.20033, 0.20033, 0.20033, 1)
@@ -57,13 +53,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = 3.0
-offset_right = -5.0
-offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vjb58")
+texture = ExtResource("2_4ytvr")
 
 [node name="botones" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
