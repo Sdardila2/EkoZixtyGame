@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://yee4kncd314w"]
+[gd_scene load_steps=6 format=3 uid="uid://yee4kncd314w"]
 
 [ext_resource type="PackedScene" uid="uid://p4u0ovsf0etn" path="res://scenes/enemy.tscn" id="1_rvslj"]
 [ext_resource type="PackedScene" uid="uid://dmhjjjsc36bom" path="res://scenes/player.tscn" id="2_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://d21ac7f8vu28h" path="res://scenes/Grass-1.tscn" id="3_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://l1hb3kphswy6" path="res://scenes/in_game_ui.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" path="res://scenes/enemy2.tscn" id="5_tbgi4"]
-[ext_resource type="Script" uid="uid://c7s2oftxhg7gh" path="res://scripts/enemy.gd" id="6_tefeu"]
 
 [node name="Main" type="Node2D"]
 
@@ -53,16 +52,8 @@ offset_right = 229.0
 offset_bottom = 880.0
 grow_vertical = 0
 
-[node name="Enemy2_0" type="CharacterBody2D" parent="." instance=ExtResource("5_tbgi4")]
-y_sort_enabled = true
+[node name="Enemy2_0" parent="." instance=ExtResource("5_tbgi4")]
 position = Vector2(552, 365)
-collision_layer = 257
-collision_mask = 16
-script = ExtResource("6_tefeu")
 
-[node name="Enemy2_1" type="CharacterBody2D" parent="." instance=ExtResource("5_tbgi4")]
-y_sort_enabled = true
+[node name="Enemy2_1" parent="." instance=ExtResource("5_tbgi4")]
 position = Vector2(318, 350)
-collision_layer = 257
-collision_mask = 16
-script = ExtResource("6_tefeu")
