@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dmhjjjsc36bom" path="res://scenes/player.tscn" id="2_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://d21ac7f8vu28h" path="res://scenes/Grass-1.tscn" id="3_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://l1hb3kphswy6" path="res://scenes/in_game_ui.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://b0o2inf0qnh67" path="res://scenes/enemy2.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/enemy2.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node2D"]
 
