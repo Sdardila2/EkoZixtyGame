@@ -1,9 +1,9 @@
 [gd_scene load_steps=36 format=3 uid="uid://l1hb3kphswy6"]
 
 [ext_resource type="Texture2D" uid="uid://71ae8w3v0fth" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_kplmn"]
-[ext_resource type="Script" uid="uid://d2xaxi37m7kdw" path="res://scripts/popup_menu_manager.gd" id="1_ria60"]
+[ext_resource type="Script" uid="uid://d2xaxi37m7kdw" path="res://scenes/popup_menu_manager.gd" id="1_ria60"]
 [ext_resource type="Texture2D" uid="uid://bs8frtpv1c6va" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/modifided version of the sprite sheet.png" id="2_fnge6"]
-[ext_resource type="Script" uid="uid://c8deyw2vfvkv3" path="res://scripts/stat_display_menu_manager.gd" id="3_fqvwy"]
+[ext_resource type="Script" uid="uid://c8deyw2vfvkv3" path="res://scenes/stat_display_menu_manager.gd" id="3_fqvwy"]
 [ext_resource type="FontFile" uid="uid://iyko7vrordi8" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.ttf" id="4_ria60"]
 [ext_resource type="Texture2D" uid="uid://dmjqxcpn8oxuh" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/sampleimage.jpg" id="6_6qwj3"]
 [ext_resource type="Texture2D" uid="uid://c6o6b1nb8x41y" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/audio-off-icon.png" id="7_jlb72"]

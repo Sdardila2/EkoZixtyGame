@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://byir7r0cxe573"]
+[gd_scene load_steps=7 format=3 uid="uid://byir7r0cxe573"]
 
+[ext_resource type="Texture2D" uid="uid://b20kh4dnvtsv7" path="res://sprites/menu/Background.png" id="1_8n18e"]
 [ext_resource type="Texture2D" uid="uid://hcjrtl7wc1pi" path="res://sprites/menu/Pixel Buttom.png" id="1_r67kn"]
 [ext_resource type="FontFile" uid="uid://iyko7vrordi8" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.ttf" id="2_brbbq"]
 [ext_resource type="FontFile" uid="uid://criaoifxls3nh" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.otf" id="3_brbbq"]
@@ -12,7 +13,7 @@ region_rect = Rect2(128, 384, 64, 32)
 texture = ExtResource("1_r67kn")
 region_rect = Rect2(1, 384, 62, 32)
 
-[node name="Control" type="Control"]
+[node name="MenuPrincipal" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +29,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.666667, 0.792157, 0.403922, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8n18e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

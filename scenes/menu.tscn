@@ -1,16 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq4pof4eayfnv"]
+[gd_scene load_steps=12 format=3 uid="uid://bq4pof4eayfnv"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_vjb58"]
-[ext_resource type="Texture2D" uid="uid://dxx8xiqrflioq" path="res://imagenes/menu Pixel art.webp" id="1_yqeox"]
+[ext_resource type="Script" uid="uid://bwa0538wb0ewg" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://b20kh4dnvtsv7" path="res://sprites/menu/Background.png" id="2_vjb58"]
+[ext_resource type="FontFile" uid="uid://criaoifxls3nh" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.otf" id="3_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://k2ks3sjl7hx" path="res://sprites/menu/PBP-Blank button.png" id="3_con2f"]
+[ext_resource type="Texture2D" uid="uid://dd55p62nhb76m" path="res://sprites/menu/PBP-V2.png" id="4_mhnvy"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
-bg_color = Color(0.0445579, 0.0445578, 0.0445578, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ytvr"]
+texture = ExtResource("4_mhnvy")
+region_rect = Rect2(64, 19, 32, 13)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
-bg_color = Color(0.0781564, 0.0781565, 0.0781564, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g3eks"]
+texture = ExtResource("4_mhnvy")
+region_rect = Rect2(16, 16, 32, 16)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
-bg_color = Color(0.0801357, 0.0778938, 0.0744723, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v86rl"]
+texture = ExtResource("3_con2f")
+region_rect = Rect2(54, 3, 32, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_13sgg"]
+texture = ExtResource("3_con2f")
+region_rect = Rect2(6, 0, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i6lef"]
+texture = ExtResource("4_mhnvy")
+region_rect = Rect2(64, 51, 32, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_70i5f"]
+texture = ExtResource("4_mhnvy")
+region_rect = Rect2(16, 48, 32, 16)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -45,41 +63,66 @@ offset_right = -5.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_yqeox")
+texture = ExtResource("2_vjb58")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="botones" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.612
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -114.5
-offset_top = -62.0
-offset_right = 114.5
-offset_bottom = 62.0
+anchor_bottom = 0.612
+offset_left = -96.0
+offset_top = -95.0161
+offset_right = 97.0
+offset_bottom = 94.9839
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Play" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="Play" type="Button" parent="ColorRect/botones"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.145098, 0.317647, 0.180392, 0.823529)
+theme_override_colors/font_color = Color(0.145098, 0.317647, 0.180392, 0.823529)
+theme_override_colors/font_pressed_color = Color(0.145098, 0.317647, 0.180392, 0.823529)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_4ytvr")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_vjb58")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4ytvr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4ytvr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_g3eks")
 text = "JUGAR"
 
-[node name="opciones" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="opciones" type="Button" parent="ColorRect/botones"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_colors/font_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_colors/font_pressed_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_fonts/font = ExtResource("3_4ytvr")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_con2f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v86rl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v86rl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_13sgg")
 text = "OPCIONES"
 
-[node name="salir" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="salir" type="Button" parent="ColorRect/botones"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.588235, 0.164706, 0.172549, 0.866667)
+theme_override_colors/font_color = Color(0.59, 0.1652, 0.17228, 0.866667)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.164706, 0.172549, 0.866667)
+theme_override_fonts/font = ExtResource("3_4ytvr")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i6lef")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i6lef")
+theme_override_styles/normal = SubResource("StyleBoxTexture_70i5f")
 text = "SALIR"
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/opciones" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="ColorRect/botones/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ColorRect/botones/opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="ColorRect/botones/salir" to="." method="_on_salir_pressed"]

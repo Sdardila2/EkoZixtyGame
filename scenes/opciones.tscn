@@ -1,16 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctg71x8gknn5u"]
+[gd_scene load_steps=11 format=3 uid="uid://ctg71x8gknn5u"]
 
-[ext_resource type="Texture2D" uid="uid://dxx8xiqrflioq" path="res://imagenes/menu Pixel art.webp" id="1_m653e"]
 [ext_resource type="Script" uid="uid://bxbci8njtgs7q" path="res://opciones.gd" id="1_vrcbp"]
+[ext_resource type="Texture2D" uid="uid://b20kh4dnvtsv7" path="res://sprites/menu/Background.png" id="2_vrcbp"]
+[ext_resource type="FontFile" uid="uid://criaoifxls3nh" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.otf" id="3_tvub7"]
+[ext_resource type="Texture2D" uid="uid://k2ks3sjl7hx" path="res://sprites/menu/PBP-Blank button.png" id="4_e4n35"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
-bg_color = Color(0.0445579, 0.0445578, 0.0445578, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fw0po"]
+texture = ExtResource("4_e4n35")
+region_rect = Rect2(54, 3, 32, 13)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
-bg_color = Color(0.0781564, 0.0781565, 0.0781564, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_viqy3"]
+texture = ExtResource("4_e4n35")
+region_rect = Rect2(6, 0, 32, 16)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
-bg_color = Color(0.0801357, 0.0778938, 0.0744723, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_meyqn"]
+texture = ExtResource("4_e4n35")
+region_rect = Rect2(54, 3, 32, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nw5pp"]
+texture = ExtResource("4_e4n35")
+region_rect = Rect2(6, 0, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ti6qe"]
+texture = ExtResource("4_e4n35")
+region_rect = Rect2(54, 3, 32, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kqdd1"]
+texture = ExtResource("4_e4n35")
+region_rect = Rect2(6, 0, 32, 16)
 
 [node name="Opciones" type="Control"]
 layout_mode = 3
@@ -45,7 +62,7 @@ offset_right = -5.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_m653e")
+texture = ExtResource("2_vrcbp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
@@ -54,30 +71,51 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -114.5
-offset_top = -62.0
-offset_right = 114.5
-offset_bottom = 62.0
+offset_left = -96.5
+offset_top = -95.0
+offset_right = 96.5
+offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
 [node name="Volumen" type="Button" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_colors/font_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_colors/font_pressed_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_fonts/font = ExtResource("3_tvub7")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_vjb58")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fw0po")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fw0po")
+theme_override_styles/normal = SubResource("StyleBoxTexture_viqy3")
 text = "VOLUMEN"
 
 [node name="Instrucciones" type="Button" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_colors/font_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_colors/font_pressed_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_fonts/font = ExtResource("3_tvub7")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_con2f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_meyqn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_meyqn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nw5pp")
 text = "INSTRUCCIONES"
 
 [node name="Atras" type="Button" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_colors/font_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_colors/font_pressed_color = Color(0.356863, 0.372549, 0.4, 0.827451)
+theme_override_fonts/font = ExtResource("3_tvub7")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ti6qe")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ti6qe")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kqdd1")
 text = "ATRAS"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Atras" to="." method="_on_atras_pressed"]

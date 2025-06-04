@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqxomsy73egxb" path="res://inventory/InventoryItem.gd" id="1_5imdx"]
 [ext_resource type="Resource" uid="uid://b33rp4r3sflva" path="res://inventory/items/Apple.tres" id="2_1dgi5"]
-[ext_resource type="Resource" uid="uid://b6wbyw6eopge" path="res://inventory/items/Lethal_Sword.tres" id="3_1dgi5"]
+[ext_resource type="Resource" path="res://inventory/items/Lethal_Sword.tres" id="3_1dgi5"]
 [ext_resource type="Script" uid="uid://bbh5hlnxj6bdf" path="res://inventory/Inventory.gd" id="3_5imdx"]
 
 [resource]
