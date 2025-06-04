@@ -40,7 +40,7 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 		if not dying:
-			$AnimatedSprite2D.play("idle_down")
+			$AnimatedSprite2D.play("run")
 
 	move_and_slide()
 
