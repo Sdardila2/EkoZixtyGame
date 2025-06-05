@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://nlximcwm0rv8"]
+
+[ext_resource type="Script" uid="uid://63tulu7gfxvq" path="res://npc/scripts/npc_behavior_wander.gd" id="1_h0y2q"]
+
+[node name="NpcBehaviorWander" type="Node2D"]
+script = ExtResource("1_h0y2q")
