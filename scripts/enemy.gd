@@ -100,7 +100,6 @@ func die() -> void:
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
 	emit_signal("slime_died", 20)
-	print("Died")
 
 
 func flash_red() -> void:

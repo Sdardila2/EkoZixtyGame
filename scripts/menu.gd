@@ -2,7 +2,11 @@ extends Control
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://scenes/CityMap.tscn")
+	if GlobalVariables.current_world == "":
+		get_tree().change_scene_to_file("res://scenes/CityMap.tscn")
+	else:
+		get_tree().change_scene_to_file(GlobalVariables.current_world)
+		
 
 
 func _on_opciones_pressed():

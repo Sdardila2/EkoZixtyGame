@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bq4pof4eayfnv"]
 
-[ext_resource type="Script" uid="uid://bwa0538wb0ewg" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Script" uid="uid://bwa0538wb0ewg" path="res://scripts/Menu.gd" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://c5fmpaba8772e" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/imagenCHATgptMenu.png" id="2_4ytvr"]
 [ext_resource type="FontFile" uid="uid://criaoifxls3nh" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.otf" id="3_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://k2ks3sjl7hx" path="res://sprites/menu/PBP-Blank button.png" id="3_con2f"]
@@ -39,46 +39,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vjb58")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 7.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.20033, 0.20033, 0.20033, 1)
-
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -27.0
-offset_top = -1.0
-offset_right = 136.0
-offset_bottom = 260.0
+anchor_bottom = 1.041
+offset_bottom = -44.28
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_4ytvr")
+expand_mode = 1
 
-[node name="botones" type="VBoxContainer" parent="ColorRect"]
+[node name="botones" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.612
-anchor_right = 0.5
-anchor_bottom = 0.612
-offset_left = -96.0
-offset_top = -95.0161
-offset_right = 97.0
-offset_bottom = 94.9839
+anchor_left = 0.527
+anchor_top = 0.588
+anchor_right = 0.527
+anchor_bottom = 0.588
+offset_left = -73.84
+offset_top = -95.04
+offset_right = 74.16
+offset_bottom = 94.96
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Play" type="Button" parent="ColorRect/botones"]
+[node name="Play" type="Button" parent="botones"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.145098, 0.317647, 0.180392, 0.823529)
@@ -94,8 +82,9 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4ytvr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_4ytvr")
 theme_override_styles/normal = SubResource("StyleBoxTexture_g3eks")
 text = "JUGAR"
+icon_alignment = 1
 
-[node name="opciones" type="Button" parent="ColorRect/botones"]
+[node name="opciones" type="Button" parent="botones"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.356863, 0.372549, 0.4, 0.827451)
@@ -108,7 +97,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_v86rl")
 theme_override_styles/normal = SubResource("StyleBoxTexture_13sgg")
 text = "OPCIONES"
 
-[node name="salir" type="Button" parent="ColorRect/botones"]
+[node name="salir" type="Button" parent="botones"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.588235, 0.164706, 0.172549, 0.866667)
@@ -121,6 +110,6 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_i6lef")
 theme_override_styles/normal = SubResource("StyleBoxTexture_70i5f")
 text = "SALIR"
 
-[connection signal="pressed" from="ColorRect/botones/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="ColorRect/botones/opciones" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="ColorRect/botones/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="botones/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="botones/opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="botones/salir" to="." method="_on_salir_pressed"]

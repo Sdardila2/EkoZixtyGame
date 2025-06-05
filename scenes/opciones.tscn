@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://ctg71x8gknn5u"]
 
-[ext_resource type="Script" uid="uid://bxbci8njtgs7q" path="res://opciones.gd" id="1_vrcbp"]
+[ext_resource type="Script" uid="uid://bxbci8njtgs7q" path="res://scripts/Opciones.gd" id="1_vrcbp"]
 [ext_resource type="Texture2D" uid="uid://bojsgxw77wgk3" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/Background.png" id="2_tvub7"]
 [ext_resource type="FontFile" uid="uid://criaoifxls3nh" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.otf" id="3_tvub7"]
 [ext_resource type="Texture2D" uid="uid://k2ks3sjl7hx" path="res://sprites/menu/PBP-Blank button.png" id="4_e4n35"]

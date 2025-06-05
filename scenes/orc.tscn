@@ -1,6 +1,6 @@
 [gd_scene load_steps=56 format=3 uid="uid://rnl888cukkwg"]
 
-[ext_resource type="Script" uid="uid://c7s2oftxhg7gh" path="res://scripts/enemy.gd" id="1_4e2ig"]
+[ext_resource type="Script" uid="uid://c7s2oftxhg7gh" path="res://scripts/Enemy.gd" id="1_4e2ig"]
 [ext_resource type="Texture2D" uid="uid://iwexkh1ki2fe" path="res://sprites/Orc1/Orc1_death/orc1_death_full.png" id="2_thqno"]
 [ext_resource type="Texture2D" uid="uid://cmsqfjv4y8wmy" path="res://sprites/Orc1/Orc1_idle/orc1_idle_full.png" id="3_l4k25"]
 [ext_resource type="Texture2D" uid="uid://bkwjbpl55t7vo" path="res://sprites/Pixel Health Bar/Bar/no health bar.png" id="3_thqno"]

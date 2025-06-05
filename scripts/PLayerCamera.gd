@@ -8,6 +8,12 @@ func _ready() -> void:
 	match get_tree().current_scene.scene_file_path:
 		"res://scenes/ForestMap.tscn":
 			zoom = Vector2(3, 3)
+		("res://scenes/CityMap.tscn"):
+			zoom = Vector2(3, 3) 
+		("res://scenes/BeachMap.tscn"):
+			zoom = Vector2(3, 3) 
+		("res://scenes/ToxicMap.tscn"):
+			zoom = Vector2(3, 3) 
 		("res://scenes/main.tscn"):
 			zoom = Vector2(3, 3) 
 	pass # Replace with function body.
