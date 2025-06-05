@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://c2sq8w6v2nt0"]
+
+[ext_resource type="Texture2D" uid="uid://xthjuj34osgy" path="res://npc/sprites/portraits/npc_portrait_01.png" id="1_fxmbg"]
+[ext_resource type="Script" uid="uid://c0osjuy7jkb66" path="res://npc/scripts/npc_resource.gd" id="1_mlker"]
+[ext_resource type="Texture2D" uid="uid://46nva5ebc4s0" path="res://npc/sprites/npc_sprite.png" id="3_4tdd8"]
+
+[resource]
+script = ExtResource("1_mlker")
+npc_name = "Juan"
+sprite = ExtResource("3_4tdd8")
+portrait = ExtResource("1_fxmbg")
+dialog_audio_pitch = ""
+metadata/_custom_type_script = "uid://c0osjuy7jkb66"

@@ -1,11 +1,14 @@
-[gd_scene load_steps=14 format=4 uid="uid://kr61af087ipi"]
+[gd_scene load_steps=17 format=4 uid="uid://kr61af087ipi"]
 
 [ext_resource type="Texture2D" uid="uid://cm3bpuw5q7v0t" path="res://sprites/Godot_Autotiles_16x16.png" id="1_x3104"]
 [ext_resource type="Texture2D" uid="uid://d22gr3upa3n2q" path="res://sprites/forest/7_Villas_16x16.png" id="2_o8aun"]
 [ext_resource type="Texture2D" uid="uid://dkygn0wxdqqum" path="res://sprites/forest/11_Camping_16x16.png" id="3_jca2j"]
 [ext_resource type="Texture2D" uid="uid://wu12sqmp7ken" path="res://sprites/forest/19_Graveyard_16x16.png" id="4_x46bk"]
 [ext_resource type="PackedScene" uid="uid://dmhjjjsc36bom" path="res://scenes/player.tscn" id="5_x46bk"]
-[ext_resource type="PackedScene" path="res://scenes/orc.tscn" id="6_1viua"]
+[ext_resource type="PackedScene" uid="uid://rnl888cukkwg" path="res://scenes/orc.tscn" id="6_1viua"]
+[ext_resource type="PackedScene" uid="uid://c6vvg7qjashoc" path="res://npc/npc.tscn" id="7_8u0ag"]
+[ext_resource type="Resource" uid="uid://c2sq8w6v2nt0" path="res://npc/00_npcs/npc_01.tres" id="8_7o30b"]
+[ext_resource type="PackedScene" uid="uid://nlximcwm0rv8" path="res://npc/npc_behavior_wander.tscn" id="8_qqg64"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r1knc"]
 texture = ExtResource("1_x3104")
@@ -9474,5 +9477,11 @@ position = Vector2(579, -93)
 
 [node name="Enemy" parent="." instance=ExtResource("6_1viua")]
 position = Vector2(56, -8)
+
+[node name="NPC" parent="." instance=ExtResource("7_8u0ag")]
+position = Vector2(18, 12)
+npc_resources = ExtResource("8_7o30b")
+
+[node name="NpcBehaviorWander" parent="NPC" instance=ExtResource("8_qqg64")]
 
 [connection signal="slime_died" from="Enemy" to="Player" method="_on_enemy_slime_died"]
