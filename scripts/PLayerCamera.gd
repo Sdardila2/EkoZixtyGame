@@ -6,10 +6,10 @@ func _ready() -> void:
 	GlobalLevelManager.TileMapBoundsChanged.connect(UpdateLimits)
 	UpdateLimits(GlobalLevelManager.current_tilemap_bounds)
 	match get_tree().current_scene.scene_file_path:
-		"res://scenes/forest.tscn":
-			zoom = Vector2(1, 1)
+		"res://scenes/ForestMap.tscn":
+			zoom = Vector2(3, 3)
 		("res://scenes/main.tscn"):
-			zoom = Vector2(4, 4)
+			zoom = Vector2(3, 3) 
 	pass # Replace with function body.
 
 

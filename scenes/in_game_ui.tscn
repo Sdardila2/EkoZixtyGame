@@ -1,9 +1,9 @@
 [gd_scene load_steps=36 format=3 uid="uid://l1hb3kphswy6"]
 
 [ext_resource type="Texture2D" uid="uid://71ae8w3v0fth" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_kplmn"]
-[ext_resource type="Script" uid="uid://d2xaxi37m7kdw" path="res://scripts/popup_menu_manager.gd" id="1_ria60"]
+[ext_resource type="Script" uid="uid://d2xaxi37m7kdw" path="res://scenes/popup_menu_manager.gd" id="1_ria60"]
 [ext_resource type="Texture2D" uid="uid://bs8frtpv1c6va" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/modifided version of the sprite sheet.png" id="2_fnge6"]
-[ext_resource type="Script" uid="uid://c8deyw2vfvkv3" path="res://scripts/stat_display_menu_manager.gd" id="3_fqvwy"]
+[ext_resource type="Script" uid="uid://c8deyw2vfvkv3" path="res://scenes/stat_display_menu_manager.gd" id="3_fqvwy"]
 [ext_resource type="FontFile" uid="uid://iyko7vrordi8" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.ttf" id="4_ria60"]
 [ext_resource type="Texture2D" uid="uid://dmjqxcpn8oxuh" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/sampleimage.jpg" id="6_6qwj3"]
 [ext_resource type="Texture2D" uid="uid://c6o6b1nb8x41y" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/audio-off-icon.png" id="7_jlb72"]
@@ -687,7 +687,6 @@ layout_mode = 2
 theme_override_constants/separation = 5
 
 [node name="toggleMenuButton" type="Button" parent="popupMenu/menu/baseMenuScreen/VBoxContainer"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(50, 4)
 layout_mode = 2
@@ -707,7 +706,6 @@ patch_margin_right = 4
 patch_margin_bottom = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="popupMenu/menu/baseMenuScreen/VBoxContainer/NinePatchRect"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -927,7 +925,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_yjjyl")
 
 [node name="settingsMenu" type="MarginContainer" parent="popupMenu"]
 visible = false
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -1074,8 +1071,8 @@ libraries = {
 [node name="pauseMenu" type="MarginContainer" parent="."]
 visible = false
 layout_mode = 2
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_right = 1371.0
+offset_bottom = 766.0
 
 [node name="ColorRect" type="ColorRect" parent="pauseMenu"]
 layout_mode = 2
