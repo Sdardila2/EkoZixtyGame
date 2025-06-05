@@ -5,6 +5,11 @@ class_name PlayerCamera extends Camera2D
 func _ready() -> void:
 	GlobalLevelManager.TileMapBoundsChanged.connect(UpdateLimits)
 	UpdateLimits(GlobalLevelManager.current_tilemap_bounds)
+	match get_tree().current_scene.scene_file_path:
+		"res://scenes/forest.tscn":
+			zoom = Vector2(1, 1)
+		("res://scenes/main.tscn"):
+			zoom = Vector2(4, 4)
 	pass # Replace with function body.
 
 

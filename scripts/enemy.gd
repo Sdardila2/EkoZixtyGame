@@ -14,6 +14,7 @@ var dying = false
 
 func _ready():
 	start_position = global_position  # Guarda la posición inicial
+	$AnimatedSprite2D.play("idle_down")
 
 func _physics_process(_delta: float) -> void:
 	if dying:
@@ -40,7 +41,7 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 		if not dying:
-			$AnimatedSprite2D.play("run")
+			$AnimatedSprite2D.play("walk_down")
 
 	move_and_slide()
 
@@ -99,6 +100,8 @@ func die() -> void:
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
 	emit_signal("slime_died", 20)
+	print("Died")
+
 
 func flash_red() -> void:
 	var sprite = $AnimatedSprite2D
