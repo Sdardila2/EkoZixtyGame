@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dcuj21e78ckdw"]
+[gd_scene load_steps=40 format=4 uid="uid://dcuj21e78ckdw"]
 
 [ext_resource type="Texture2D" uid="uid://cm3bpuw5q7v0t" path="res://sprites/Godot_Autotiles_16x16.png" id="1_hmlgk"]
 [ext_resource type="Texture2D" uid="uid://dwabayg854lel" path="res://sprites/tilemaps/Sprites/TILESET COMPRADO/Tileset_77_MV.png" id="2_452m5"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://cmxr5gk1ch5od" path="res://sprites/tilemaps/Sprites/TILESET COMPRADO/Tileset_22_MV.png" id="15_3jpov"]
 [ext_resource type="Texture2D" uid="uid://cli4ukhlq1xa1" path="res://sprites/tilemaps/Sprites/TILESET COMPRADO/Tileset_9_MV.png" id="16_8d4db"]
 [ext_resource type="Texture2D" uid="uid://b8sf2gni5wwg3" path="res://sprites/city/Modern_Exteriors_RTU_1_layer_1_16x16.png" id="17_f1qvn"]
+[ext_resource type="PackedScene" uid="uid://b1mavt2pnruy4" path="res://scenes/orc2.tscn" id="18_nfs76"]
+[ext_resource type="PackedScene" uid="uid://dmhjjjsc36bom" path="res://scenes/player.tscn" id="19_2k15w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r1knc"]
 texture = ExtResource("1_hmlgk")
@@ -27962,3 +27964,11 @@ tile_set = SubResource("TileSet_au016")
 
 [node name="Estructuras3" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_nfs76")
+
+[node name="Enemy" parent="." instance=ExtResource("18_nfs76")]
+position = Vector2(317, 629)
+
+[node name="Player" parent="." instance=ExtResource("19_2k15w")]
+position = Vector2(1139, 258)
+
+[connection signal="slime_died" from="Enemy" to="Player" method="_on_enemy_slime_died"]

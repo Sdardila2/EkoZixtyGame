@@ -30,6 +30,7 @@ signal changed_damage(value)
 signal detected_item(value)
 
 func _ready() -> void:
+	
 	verify_inventory()
 	
 func _physics_process(delta: float) -> void:
@@ -46,6 +47,7 @@ func _physics_process(delta: float) -> void:
 		health = 0
 		print("Player has been slained")
 		self.queue_free()
+		get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
 		
 func verify_inventory():
 	for i in inv.items:
@@ -199,6 +201,7 @@ func changed_xpe():
 			
 			experience = 0
 		emit_signal("changed_xp", experience)
+		print(experience)
 	else:
 		pass
 
