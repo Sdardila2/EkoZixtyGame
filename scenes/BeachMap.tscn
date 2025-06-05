@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://cxm70djy5g5ks"]
+[gd_scene load_steps=8 format=4 uid="uid://cxm70djy5g5ks"]
 
 [ext_resource type="Texture2D" uid="uid://cm3bpuw5q7v0t" path="res://sprites/Godot_Autotiles_16x16.png" id="1_nqpxb"]
 [ext_resource type="Texture2D" uid="uid://bk0lrsejfhdy0" path="res://sprites/beach/21_Beach_16x16.png" id="2_r1knc"]
