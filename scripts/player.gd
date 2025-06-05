@@ -104,7 +104,7 @@ func _process(_delta):
 		dev_force_level_up()
 	if Input.is_action_just_pressed("gain_xp") and level < 30:
 		add_xp()
-
+	
 func start_attack():
 	attacking = true
 	var anim = $AnimatedSprite2D

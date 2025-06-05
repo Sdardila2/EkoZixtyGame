@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cck4f4ahydslh" path="res://sprites/tilemaps/Sprites/TILESET VILLAGE TOP DOWN/(THANK YOU).png" id="1_fkrpy"]
 [ext_resource type="Texture2D" uid="uid://c3s5yos5svk2b" path="res://sprites/tilemaps/Sprites/TILESET VILLAGE TOP DOWN/BRIDGE - DAY.png" id="2_6ibru"]
 [ext_resource type="Texture2D" uid="uid://blfmuxwlbb3cb" path="res://sprites/tilemaps/Sprites/Tileset.png" id="2_me4dm"]
-[ext_resource type="Script" path="res://scripts/LevelTileMap.gd" id="5_qki3e"]
+[ext_resource type="Script" uid="uid://o3bsuelvb0bu" path="res://scripts/LevelTileMap.gd" id="5_qki3e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlltj"]
 texture = ExtResource("1_fkrpy")
