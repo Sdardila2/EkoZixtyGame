@@ -1,15 +1,90 @@
-[gd_scene load_steps=36 format=3 uid="uid://l1hb3kphswy6"]
+[gd_scene load_steps=36 format=3 uid="uid://bssnnrpamkeex"]
 
 [ext_resource type="Texture2D" uid="uid://71ae8w3v0fth" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_kplmn"]
-[ext_resource type="Script" uid="uid://d2xaxi37m7kdw" path="res://scenes/popup_menu_manager.gd" id="1_ria60"]
 [ext_resource type="Texture2D" uid="uid://bs8frtpv1c6va" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/modifided version of the sprite sheet.png" id="2_fnge6"]
-[ext_resource type="Script" uid="uid://c8deyw2vfvkv3" path="res://scenes/stat_display_menu_manager.gd" id="3_fqvwy"]
 [ext_resource type="FontFile" uid="uid://iyko7vrordi8" path="res://sprites/Sprout Lands UI/Sprout Lands/fonts/toybox_font/ToyBox.ttf" id="4_ria60"]
 [ext_resource type="Texture2D" uid="uid://dmjqxcpn8oxuh" path="res://sprites/Sprout Lands UI/Sprout Lands/Sprite sheets/sampleimage.jpg" id="6_6qwj3"]
 [ext_resource type="Texture2D" uid="uid://c6o6b1nb8x41y" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/audio-off-icon.png" id="7_jlb72"]
 [ext_resource type="Texture2D" uid="uid://b0q4ri132mo1d" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/audio-on-icon.png" id="8_huati"]
 [ext_resource type="Texture2D" uid="uid://btp5k3avs4lq0" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/brightness-off-icon.png" id="9_yjjyl"]
 [ext_resource type="Texture2D" uid="uid://dllpchlqm025b" path="res://sprites/Sprout Lands UI/Sprout Lands/custom sprites/brightness-on-icon.png" id="10_ve7rr"]
+
+[sub_resource type="GDScript" id="GDScript_04xgm"]
+script/source = "extends MarginContainer
+
+@export var menu_screen: VBoxContainer
+@export var open_menu_screen: VBoxContainer
+@export var help_menu_screen: MarginContainer
+@export var settings_menu_screen: MarginContainer
+@export var pause_menu_screen: MarginContainer
+
+@export var open_menu_button: Button
+@export var close_menu_button: Button
+@export var open_help_button: Button
+@export var close_help_button: Button
+@export var open_settings_button: Button
+@export var close_settings_button: Button
+@export var open_pause_button: Button
+@export var close_pause_button: Button
+@export var open_quit_button: Button
+
+var in_menu_buttons: Array
+var close_menu_buttons:Array
+var toggle_popupmenu_buttons: Array
+
+func _ready():
+	in_menu_buttons=[open_help_button, open_settings_button, open_pause_button, open_quit_button]
+	toggle_popupmenu_buttons= [open_menu_button, close_menu_button]
+	close_menu_buttons = [close_settings_button, close_help_button, close_pause_button] 
+
+func _process(_delta):
+	update_button_scale()
+
+func update_button_scale():
+	for button in in_menu_buttons:
+		button_hov (button, 1.3, 0.2)
+	for button in toggle_popupmenu_buttons:
+		button_hov (button, 1.8, 0.3) 
+	for button in close_menu_buttons:
+		button_hov (button, 1.5, 0.2) 
+
+func button_hov(button: Button, tween_amt, duration):
+	button.pivot_offset=button.size / 2
+	if button.is_hovered():
+		tween(button,\"scale\", Vector2.ONE * tween_amt, duration)
+	else:
+		tween(button, \"scale\", Vector2.ONE, duration)
+
+func tween(button, propperty, amount, duration):
+	var tween = create_tween()
+	tween.tween_property(button, propperty, amount, duration)
+
+func toggle_visibility (object):
+	var anim=$\"../AnimationPlayer\"
+	var animation_type: String
+	if object.visible:
+		animation_type = \"close_\"
+	else:
+		animation_type=\"open_\"
+	anim.play(animation_type + str(object.name))
+		
+
+func _on_toggle_menu_button_pressed():
+	toggle_visibility(menu_screen)
+
+
+func _on_toggle_help_menu_button_pressed():
+	toggle_visibility(help_menu_screen)
+
+
+
+func _on_toggle_settings_menu_button_pressed():
+	toggle_visibility(settings_menu_screen)
+
+
+func _on_pause_button_pressed() -> void:
+	toggle_visibility(pause_menu_screen)
+"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlb72"]
 texture = ExtResource("1_kplmn")
@@ -50,6 +125,25 @@ region_rect = Rect2(804, 197, 22, 22)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qinws"]
 texture = ExtResource("1_kplmn")
 region_rect = Rect2(772, 195, 22, 24)
+
+[sub_resource type="GDScript" id="GDScript_qinws"]
+script/source = "extends VBoxContainer
+
+@onready var level_display= $levelDsiplay
+@onready var kills_display= $killsDsiplay2
+
+var level: String = str(84)
+var kills: String = str(1928)
+
+func _process(delta):
+	#level= str(global.level)
+	#kills= str(global.current_kills)
+	update_text()
+
+func update_text():
+	level_display.text=(\"LEVEL: \" + level)
+	kills_display.text=(\"KILLS: \" + kills)
+"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_huati"]
 texture = ExtResource("1_kplmn")
@@ -654,7 +748,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ria60")
+script = SubResource("GDScript_04xgm")
 menu_screen = NodePath("menu")
 open_menu_screen = NodePath("baseMenuOpenButtonContainer")
 help_menu_screen = NodePath("helpMenu")
@@ -773,7 +867,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 5
-script = ExtResource("3_fqvwy")
+script = SubResource("GDScript_qinws")
 
 [node name="levelDsiplay" type="Label" parent="popupMenu/menu/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/statDisplayContainer"]
 layout_mode = 2

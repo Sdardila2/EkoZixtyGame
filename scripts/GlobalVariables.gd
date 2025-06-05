@@ -1,7 +1,7 @@
 extends Node
 
 #slime vars
-var slime_damage = 500   
+var slime_damage = 10   
 var slime_health = 100
 var enemy_speed = 60
 var slime_armor = 40
@@ -14,3 +14,5 @@ var player_speed = 150
 var player_armor = 30
 var player_level = 1
 var player_xp = 0
+
+var current_world = ""

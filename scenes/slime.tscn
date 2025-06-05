@@ -1,7 +1,7 @@
 [gd_scene load_steps=54 format=3 uid="uid://p4u0ovsf0etn"]
 
 [ext_resource type="Texture2D" uid="uid://dmv5abaqfdeia" path="res://sprites/enemies/slime.png" id="1_jtoot"]
-[ext_resource type="Script" uid="uid://c7s2oftxhg7gh" path="res://scripts/enemy.gd" id="1_palws"]
+[ext_resource type="Script" uid="uid://c7s2oftxhg7gh" path="res://scripts/Enemy.gd" id="1_palws"]
 [ext_resource type="Texture2D" uid="uid://bkwjbpl55t7vo" path="res://sprites/Pixel Health Bar/Bar/no health bar.png" id="3_c4w8v"]
 [ext_resource type="Texture2D" uid="uid://dlqw80l67s5gj" path="res://sprites/Pixel Health Bar/Bar/empty health bar.png" id="4_xwavj"]
 [ext_resource type="Texture2D" uid="uid://fktr651qcsyr" path="res://sprites/Pixel Health Bar/Bar/health bar.png" id="5_nenq2"]

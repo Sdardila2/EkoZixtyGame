@@ -5,7 +5,7 @@ var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 
 var player_alive = true
-
+var kills = 0
 var SPEED = GlobalVariables.player_speed
 var current_dir = "down"
 var attacking = false
@@ -19,6 +19,8 @@ var health = GlobalVariables.player_health
 var max_health = health
 var armor = GlobalVariables.player_armor
 var damage = GlobalVariables.player_damage
+@onready var world_path = get_tree().current_scene.scene_file_path
+
 
 signal changed_xp(value)
 signal changed_xp_limit(value)
@@ -30,8 +32,9 @@ signal changed_damage(value)
 signal detected_item(value)
 
 func _ready() -> void:
-	
 	verify_inventory()
+	GlobalVariables.current_world = world_path
+	
 	
 func _physics_process(delta: float) -> void:
 	if attacking:
@@ -40,7 +43,6 @@ func _physics_process(delta: float) -> void:
 	enemy_attack()
 	attack()
 	updateHealth()
-	
 	 
 	if health <= 0:
 		player_alive = false #add endscreen, etc.
@@ -179,6 +181,7 @@ func _on_regen_time_timeout() -> void:
 	
 func _on_enemy_slime_died(value: Variant) -> void:
 	experience += value
+	kills += 1
 	changed_xpe()
 		
 func changed_xpe():
@@ -201,10 +204,15 @@ func changed_xpe():
 			
 			experience = 0
 		emit_signal("changed_xp", experience)
-		print(experience)
-	else:
-		pass
-
+	if kills == 10:
+		print(kills)
+		kills = 0
+		if world_path == "res://scenes/CityMap.tscn":
+			get_tree().change_scene_to_file("res://scenes/ForestMap.tscn")
+		elif world_path == "res://scenes/ForestMap.tscn":
+			get_tree().change_scene_to_file("res://scenes/ToxicMap.tscn")
+			
+			
 func dev_force_level_up():
 	if level < 30:
 		experience = ex_limit

@@ -1,6 +1,6 @@
-[gd_scene load_steps=119 format=3 uid="uid://dmhjjjsc36bom"]
+[gd_scene load_steps=118 format=3 uid="uid://dmhjjjsc36bom"]
 
-[ext_resource type="Script" uid="uid://bp6jxfjvjuvgk" path="res://scripts/player.gd" id="1_4ntmi"]
+[ext_resource type="Script" uid="uid://bp6jxfjvjuvgk" path="res://scripts/Player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://cv036xtkefcnc" path="res://sprites/player/ATTACK 2/attack2_down.png" id="2_jej6c"]
 [ext_resource type="Texture2D" uid="uid://oxr30ne58hik" path="res://sprites/player/IDLE/idle_down.png" id="3_b5dsp"]
 [ext_resource type="Texture2D" uid="uid://da8230qbuydcf" path="res://sprites/player/ATTACK 2/attack2_left.png" id="3_f1ej7"]
@@ -13,8 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cxo3u0rc5pnsf" path="res://sprites/player/RUN/run_left.png" id="8_0fjhn"]
 [ext_resource type="Texture2D" uid="uid://dovenji5cnkj0" path="res://sprites/player/RUN/run_right.png" id="9_p1b0u"]
 [ext_resource type="Texture2D" uid="uid://bhul5o17sr74" path="res://sprites/player/RUN/run_up.png" id="10_2u0y0"]
-[ext_resource type="Script" uid="uid://drmctkpufs2kp" path="res://scripts/PLayerCamera.gd" id="14_p7iby"]
-[ext_resource type="PackedScene" uid="uid://l1hb3kphswy6" path="res://scenes/in_game_ui.tscn" id="15_4r5pv"]
+[ext_resource type="Script" uid="uid://drmctkpufs2kp" path="res://scripts/PlayerCamera.gd" id="14_p7iby"]
 [ext_resource type="Texture2D" uid="uid://bkwjbpl55t7vo" path="res://sprites/Pixel Health Bar/Bar/no health bar.png" id="15_qfm1y"]
 [ext_resource type="Texture2D" uid="uid://dlqw80l67s5gj" path="res://sprites/Pixel Health Bar/Bar/empty health bar.png" id="16_fulsm"]
 [ext_resource type="Texture2D" uid="uid://fktr651qcsyr" path="res://sprites/Pixel Health Bar/Bar/health bar.png" id="17_4r5pv"]
@@ -778,12 +777,23 @@ sprite_frames = SubResource("SpriteFrames_0k3my")
 animation = &"attack_down"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+editor_draw_limits = true
 script = ExtResource("14_p7iby")
 
-[node name="inGameUI" parent="Camera2D" instance=ExtResource("15_4r5pv")]
+[node name="inGameUI" parent="Camera2D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 offset_top = 88.0
 offset_bottom = 88.0
 size_flags_vertical = 8
+script = null
 
 [node name="PlayerHitbox" type="Area2D" parent="."]
 
